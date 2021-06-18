@@ -1,14 +1,17 @@
+const result = require('dotenv').config();
+console.log(result);
+
 const express = require('express'),
-	app = express();
+	  app = express(),
+      db = require('./services/db');
     
-    
+
 // Routes connection
 app
     .use('/', require('./routes/index'))
-    .use('/auth', require('./routes/auth'))
-    .use('/users', require('./routes/users'))
-    .use('/trashes', require('./routes/trashes'))
-    .use('/ways', require('./routes/ways'));
+    // .use('/auth', require('./routes/auth'))
+    // .use('/users', require('./routes/users'))
+
 
 // Handle 404 AND 500 codes
 app
