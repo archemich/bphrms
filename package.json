@@ -1,0 +1,19 @@
+{
+  "name": "bphrms",
+  "version": "1.0.0",
+  "description": "blood pressure and heart rate monitoring system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/archemich/bphrms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/archemich/bphrms/issues"
+  },
+  "homepage": "https://github.com/archemich/bphrms#readme"
+}
