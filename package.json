@@ -15,8 +15,6 @@
   "bugs": {
     "url": "https://github.com/archemich/bphrms/issues"
   },
-  "homepage": "https://github.com/archemich/bphrms#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "homepage": "https://github.com/archemich/bphrms#readme"
+
 }
