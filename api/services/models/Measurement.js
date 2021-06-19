@@ -20,6 +20,10 @@ const Measurement = sequelize.define("Measurement", {
     type: Sequelize.INTEGER,
     allowNull: false
   },
+  timestamp: {
+    type: Sequelize.DATE,
+    allowNull: false
+  },
   comment_patients: {
     type: Sequelize.STRING(500),
     allowNull: true

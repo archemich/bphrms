@@ -6,8 +6,6 @@ const express = require('express'),
 
 // Syncing models
 require('./services/models_sync'); 
-
-
     
 
 // Routes connection
@@ -22,6 +20,7 @@ app
     .use('/', require('./routes/index'))
     .use('/auth', require('./routes/auth'))
     .use('/users', require('./routes/users'))
+    .use('/measurement', require('./routes/measurement'))
 
 
 // Handle 404 AND 500 codes

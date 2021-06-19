@@ -47,7 +47,7 @@ const Patient = sequelize.define("Patient", {
   }
 });
 
-Patient.hasMany(Measurement);
-Patient.hasMany(Device);
+Patient.hasMany(Measurement, {onDelete: "cascade"});
+Patient.hasMany(Device, {onDelete: "cascade"});
 
 module.exports = Patient;
