@@ -1,9 +1,10 @@
 const router = require('express').Router(),
 	usersCtrl = require('../controllers/measurement');
 
-router.route('/get/:id').get(usersCtrl.getMeasurement);
+router.route('/get').get(usersCtrl.getMeasurement);
 
-router.route('/create/:id').post(usersCtrl.createMeasurement);
+router.route('/create').post(usersCtrl.createMeasurement);
 
+router.route('/update/:id').put(usersCtrl.updateMeasurement);
 
 module.exports = router;

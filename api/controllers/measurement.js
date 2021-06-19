@@ -2,8 +2,9 @@ const Measurement = require("../services/models/Measurement");
 
 
 module.exports = {
-	async getMeasurement({params}, res){
-		let patientId = params['id'];
+	async getMeasurement(req, res){
+		let patientId = req.query['id'];
+		console.log(patientId);
 		let measurement = await Measurement.findAll({where: {PatientId:patientId}});
 		if(!measurement){
 			res.status(404).json("No measurement");
@@ -12,15 +13,40 @@ module.exports = {
 		res.json({measurement});
 	},
 	async createMeasurement(req, res){
-		let patientId = req.params['id'];
+		let patientId = req.query['id'];
 		let mesurementBody = req.body;
+		console.log(mesurementBody);
 		let measurement = await Measurement.create({
 			PatientId: patientId,
-			heart_rate: mesurementBody['hr'],
-			pressure_st: mesurementBody['pst'],
-			pressure_dt: mesurementBody['pdt'],
-			timestamp: Date.now()
+			heart_rate: mesurementBody['heart_rate'],
+			pressure_st: mesurementBody['pressure_st'],
+			pressure_dt: mesurementBody['pressure_dt'],
+			timestamp: Date.now(),
+			comment_patient: mesurementBody['comment_patient'],
+			comment_doctor: mesurementBody['comment_doctor']
 		});
-		res.status(200).json({status: "OK"});
+		if(!measurement){
+			res.status(404).json("Don't work");
+		}
+		res.status(200).json({status: "OK", create: measurement});
+	}, 
+	async updateMeasurement(req, res) {
+		let measurementId = req.params['id'];
+		let measurementBody = req.body;
+		let measure = await Measurement.findByPk(measurementId);
+
+		let measurement = await Measurement.update({
+			heart_rate: measurementBody['heart_rate'] == undefined ? measure['heart_rate'] : measurementBody['heart_rate'],
+			pressure_st: measurementBody['pressure_st'] == undefined ? measure['pressure_st'] : measurementBody['pressure_st'],
+			pressure_dt: measurementBody['pressure_dt'] == undefined ? measure['pressure_dt'] : measurementBody['pressure_dt'],
+			comment_patient: measurementBody['comment_patient'] == undefined ? measure['comment_patient'] : measurementBody['comment_patient'],
+			comment_doctor: measurementBody['comment_doctor'] == undefined ? measure['comment_doctor'] : measurementBody['comment_doctor']
+		}, {where: {
+			id:measurementId
+		}});
+		if(!measurement){
+			res.status(404).json("Don't work");
+		}
+		res.status(200).json({status: "OK", update: measurement[0], m:measure});
 	}
 }

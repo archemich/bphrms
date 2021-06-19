@@ -15,6 +15,10 @@ const Device = sequelize.define("Device", {
   protocol: {
     type: Sequelize.STRING(10),
     allowNull: false
+  },
+  type: {
+    type: Sequelize.STRING(20),
+    allowNull: false
   }
 });
 

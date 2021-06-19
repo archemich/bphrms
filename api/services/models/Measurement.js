@@ -24,7 +24,7 @@ const Measurement = sequelize.define("Measurement", {
     type: Sequelize.DATE,
     allowNull: false
   },
-  comment_patients: {
+  comment_patient: {
     type: Sequelize.STRING(500),
     allowNull: true
   },

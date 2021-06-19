@@ -18,7 +18,7 @@ module.exports = {
 
 	async getAllPatients(req, res) {
 		let patient = await PatientModel.findAll({raw:true})
-		if (!pat) {
+		if (!patient) {
 			res.status(404);
 			return;
 		}
@@ -35,7 +35,6 @@ module.exports = {
 			res.status(404).json("No patients");
 			return;
 		}
-
 		patients.forEach(element => {
 			element['password'] = undefined;
 		});
