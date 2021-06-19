@@ -4,6 +4,7 @@ const router = require('express').Router(),
 router.route('/login').post(authCtrl.loginByLogin);
 router.route('/loginbyesia').post(authCtrl.loginByEsia);
 
-router.route('/register').post(authCtrl.register);
+// For Admin purpose (Not secured)
+router.route('/register').post(authCtrl.registerByLogin);
 
 module.exports = router;
