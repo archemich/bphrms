@@ -3,7 +3,6 @@ const PatientModel = require("../services/models/Patient"),
 	DoctorModel =require("../services/models/Doctor"),
 	DoctorPatientModel = require("../services/models/DoctorPatient");
 
-
 module.exports = {
 	async getPatient({params}, res) {
 		let patietId = params['id'];

@@ -1,11 +1,22 @@
 const Measurement = require("../services/models/Measurement");
-
+const { Op } = require("sequelize");
 
 module.exports = {
 	async getMeasurement(req, res){
 		let patientId = req.query['id'];
-		console.log(patientId);
-		let measurement = await Measurement.findAll({where: {PatientId:patientId}});
+		let countRows = req.query['rows'];
+		// let DtStart = Date.parse(req.query['timeStart']);
+		// let DtEnd = Date.parse(req.query['timeEnd']);
+		// console.log(Date.now());
+		// console.log(DtStart);
+		let measurement = await Measurement.findAll({where: {
+			PatientId:patientId,
+			// timestamp: {
+			// 	[Op.between]: DtStart, DtEnd
+			// }
+			},
+			limit: countRows == undefined ? 15 : parseInt(countRows),			  
+		});
 		if(!measurement){
 			res.status(404).json("No measurement");
 			return ;
