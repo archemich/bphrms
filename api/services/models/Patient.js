@@ -14,7 +14,7 @@ const Patient = sequelize.define("Patient", {
   login: {
     type: Sequelize.STRING(100),
     allowNull: false,
-    unique: true
+     unique: true
   },
   password: {
     type: Sequelize.STRING(100),
@@ -23,7 +23,7 @@ const Patient = sequelize.define("Patient", {
   SNILS: {
     type: Sequelize.STRING(11),
     allowNull: false,
-    unique: true
+     unique: true
   },
   fname: {
     type: Sequelize.STRING(100),
@@ -49,3 +49,5 @@ const Patient = sequelize.define("Patient", {
 
 Patient.hasMany(Measurement);
 Patient.hasMany(Device);
+
+module.exports = Patient;

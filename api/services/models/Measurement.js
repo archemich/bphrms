@@ -30,12 +30,4 @@ const Measurement = sequelize.define("Measurement", {
   }
 });
 
-
-
-sequelize.sync().then(result=>{
-  console.log();
-})
-.catch(err=> console.log());
-
-
 module.exports = Measurement
