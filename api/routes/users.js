@@ -1,9 +1,10 @@
 const router = require('express').Router(),
-	authCtrl = require('../controllers/auth');
+	usersCtrl = require('../controllers/users');
 
-router.route('/login').post(authCtrl.loginByLogin);
+router.route('/patients/:id').get(usersCtrl.getPatient);
 
-// For Admin purpose (Not secured)
-router.route('/register').post(authCtrl.register);
+router.route('/patients').get(usersCtrl.getAllPatients);
+
+router.route('/patietnsForDoctor/:id').get(usersCtrl.getPatiensForDoctor);
 
 module.exports = router;

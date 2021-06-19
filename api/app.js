@@ -21,7 +21,7 @@ app
     // Linking routers
     .use('/', require('./routes/index'))
     // .use('/auth', require('./routes/auth'))
-    // .use('/users', require('./routes/users'))
+    .use('/users', require('./routes/users'))
 
 
 // Handle 404 AND 500 codes
