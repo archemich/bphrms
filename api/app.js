@@ -20,7 +20,7 @@ app
     
     // Linking routers
     .use('/', require('./routes/index'))
-    // .use('/auth', require('./routes/auth'))
+    .use('/auth', require('./routes/auth'))
     .use('/users', require('./routes/users'))
 
 

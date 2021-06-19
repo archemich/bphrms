@@ -12,10 +12,12 @@ module.exports = {
         // Looking for user
         let user = null;
         if (role == 'doctor') {
-            await user = DoctorModel.findOne({where: login});
+            user = await DoctorModel.findOne({where: {login: login}});
+            user = user.dataValues;
         }
         else if (role == 'patient') {
-            await user = PatientModel.findOne({where: login})
+            user = await PatientModel.findOne({where: {login: login}});
+            user = user.dataValues;
         }
         if (!user) {
             res.status(401).json({ error: { message: 'User not registered' } });
@@ -31,7 +33,7 @@ module.exports = {
         ////// Access Granted //////
         res.status(200).json({
             status: 'OK',
-            token: jwt.generateJWT({user.login, role: role}),
+            token: jwt.generateJWT({user: login, role: role}),
             user: {...user, password: undefined},
         });
     },
@@ -60,7 +62,7 @@ module.exports = {
 		next();
 	},
 
-    async registerByLogin({body: { password }}) 
+    async registerByLogin({body: { password }}, res) 
     {
 		res.json({ crypt: bcrypt.hashSync(password, bcrypt.genSaltSync()) });
     }
