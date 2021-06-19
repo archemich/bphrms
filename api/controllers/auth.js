@@ -13,11 +13,9 @@ module.exports = {
         let user = null;
         if (role == 'doctor') {
             user = await DoctorModel.findOne({where: {login: login}});
-            user = user.dataValues;
         }
         else if (role == 'patient') {
             user = await PatientModel.findOne({where: {login: login}});
-            user = user.dataValues;
         }
         if (!user) {
             res.status(401).json({ error: { message: 'User not registered' } });
@@ -25,6 +23,7 @@ module.exports = {
         }
 
         // Password compare
+        user = user.dataValues;
         if (!password || !bcrypt.compareSync(password, user.password)) {
             res.status(401).json({ error: { message: 'Wrong login or password' } });
 			return;

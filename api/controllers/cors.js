@@ -1,4 +1,4 @@
-const origins = [];
+const origins = ['http://localhost:3000'];
 
 module.exports = require('cors')({
 	origin(or, cb) {
