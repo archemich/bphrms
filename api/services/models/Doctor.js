@@ -1,6 +1,5 @@
 const sequelize = require("../db");
 const Sequelize = require("sequelize");
-const Patient = require("../models/Patient")
 
 
 const Doctor = sequelize.define("Doctor", {
@@ -33,12 +32,5 @@ const Doctor = sequelize.define("Doctor", {
   }
 });
 
-
-
-
-sequelize.sync().then(result=>{
-  console.log(result);
-})
-.catch(err=> console.log(err));
 
 module.exports = Doctor;

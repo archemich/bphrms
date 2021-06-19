@@ -13,16 +13,11 @@ const DoctorPatient = sequelize.define("DoctorPatient", {
   },
 });
 
-sequelize.sync().then(result=>{
-  console.log(result);
-})
-.catch(err=> console.log(err));
 
 
 Patient.belongsToMany(Doctor, {through: DoctorPatient});
 Doctor.belongsToMany(Patient, {through: DoctorPatient});
 
-sequelize.sync().then(result=>{
-  console.log(result);
-})
-.catch(err=> console.log(err));
+
+
+module.exports = DoctorPatient;
