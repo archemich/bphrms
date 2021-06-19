@@ -8,6 +8,10 @@ const Measurement = sequelize.define("Measurement", {
     primaryKey: true,
     allowNull: false
   },
+  // patient_id: {
+  //   type: Sequelize.INTEGER,
+  //   allowNull: false
+  // },
   heart_rate: {
     type: Sequelize.INTEGER,
     allowNull: false
@@ -29,8 +33,6 @@ const Measurement = sequelize.define("Measurement", {
     allowNull: true
   }
 });
-
-
 
 sequelize.sync().then(result=>{
   console.log();

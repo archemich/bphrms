@@ -18,11 +18,6 @@ const Device = sequelize.define("Device", {
   }
 });
 
-Device.create({
-	name: "ГемоДин",
-	protocol: "ГемоДин"
-})
-
 sequelize.sync().then(result=>{
   console.log();
 })
