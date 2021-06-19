@@ -59,5 +59,15 @@ module.exports = {
 			res.status(404).json("Don't work");
 		}
 		res.status(200).json({status: "OK", update: measurement[0], m:measure});
+	},
+	async getMeasurementPropery(req, res){
+		switch(req.query['property']){
+			case "max": {
+
+			}
+			case "min": {
+				
+			}
+		}
 	}
 }
