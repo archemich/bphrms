@@ -4,6 +4,9 @@ const express = require('express'),
 	  app = express(),
       db = require('./services/db');
 
+// Syncing models
+require('./services/models_sync'); 
+
 
     
 
