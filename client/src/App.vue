@@ -1,7 +1,7 @@
 <template>
   <div id="wrap">
     <Header />
-      <main>
+      <main v-if="App">
     <div class="section">
         <div class="container-980">
             <!--            Табы -->
@@ -12,8 +12,8 @@
                         <div class="tabs is-centered is-large is-fullwidth">
                             <!--            https://bulma.io/documentation/components/tabs/    -->
                             <ul>
-                                <li class="is-active"><a>Я пациент</a></li>
-                                <li class=""><a>Я врач</a></li>
+                                <li @click="patientTabClick" class="is-active" id="patient_tab"><a  >Я пациент</a></li>
+                                <li @click="doctorTabClick" class="" id="doctor_tab"><a>Я врач</a></li>
                             </ul>
                         </div>
                     </div>
@@ -92,27 +92,43 @@
     </div>
 
 </main>
+
+<ForDoctor v-if="ForDoctor"/>
+<Doctor v-if="Doctor"/>
+<Footer/>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
+import ForDoctor from "./views/ForDoctor.vue";
+import Doctor from "./views/Doctor.vue";
 import axios from "axios";
-import VueRouter from 'vue-router';
+ 
+
 
 export default {
   name: "App",
   components: {
     Header,
+    ForDoctor,
+    Doctor,
+    Footer
   },
 
   data() {
     return {
       user: null,
-      isDoctorSet: true,
+      isDoctorSet: false,
       wrongPassword: false,
       login: null,
-      password: null
+      password: null,
+
+
+      App: true,
+      ForDoctor: false,
+      Doctor: false,
     };
   },
 
@@ -123,19 +139,40 @@ export default {
       let password = this.password;
       console.log(login);
       axios.post( "https://bphrmsapi.azurewebsites.net/auth/login", {login,password,role})
-      .then ((res) => {
-        console.log(res);
-        this.$router.push('/');
-         
-
+      .then (() => {
+        if (this.isDoctorSet){
+          this.Doctor = true;
+        }
+        this.App = false;    
         })
       .catch(() => {
         this.wrongPassword = true;
         return;
 
       })
-  
+    },
 
+    patientTabClick() {
+      this.isDoctorSet = false;
+      let patient_tab = document.getElementById("patient_tab");
+      let doctor_tab = document.getElementById("doctor_tab");
+      patient_tab.setAttribute("class", "is-active");
+      doctor_tab.removeAttribute('class');
+      console.log("patient tab click");
+    },
+
+    doctorTabClick() {
+      this.isDoctorSet = true;
+      let patient_tab = document.getElementById("patient_tab");
+      let doctor_tab = document.getElementById("doctor_tab");
+      doctor_tab.setAttribute("class", "is-active");
+      patient_tab.removeAttribute('class');
+      console.log("doctor tab click");
+    },
+    setAllScreensOff() {
+      this.App = false;
+      this.ForDoctor = false;
+      this.Doctor = false;
     }
   },
 
