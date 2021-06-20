@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     boolean isDoctor = false;
     private EditText login_textbox;
     private EditText password_textbox;
-
+    boolean login_request_sent = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +37,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void onLoginClick(View view) {
+        if(login_request_sent) return;
+        login_request_sent = true;
         String login = login_textbox.getText().toString();
         String password = password_textbox.getText().toString();
         String role = isDoctor ? "doctor" : "patient";
-
 
         String URL = getString(R.string.API_URL)+"auth/login";
         JSONObject jsonBody = new JSONObject();
@@ -78,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 System.out.println("error Timeout????????????????");
+                login_request_sent = false;
             }
         });
         Volley.newRequestQueue(this).add(jsonObjectRequest);
