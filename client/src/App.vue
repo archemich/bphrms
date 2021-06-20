@@ -95,6 +95,7 @@
 
 <ForDoctor v-if="ForDoctor"/>
 <Doctor v-if="Doctor"/>
+<CardForDoctor v-if="CardForDoctor"/>
 <Footer/>
   </div>
 </template>
@@ -104,6 +105,7 @@ import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 import ForDoctor from "./views/ForDoctor.vue";
 import Doctor from "./views/Doctor.vue";
+import CardForDoctor from "./views/CardForDoctor.vue";
 import axios from "axios";
  
 
@@ -114,7 +116,8 @@ export default {
     Header,
     ForDoctor,
     Doctor,
-    Footer
+    Footer,
+    CardForDoctor,
   },
 
   data() {
@@ -126,9 +129,10 @@ export default {
       password: null,
 
 
-      App: true,
+      App: false,
       ForDoctor: false,
       Doctor: false,
+      CardForDoctor: true,
     };
   },
 
