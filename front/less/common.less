@@ -1,0 +1,119 @@
+header {
+  .navbar-item {
+    font-size: 1.5em;
+  }
+
+  .menu-icon {
+    background-color: transparent !important;
+  }
+
+  .navbar-burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
+
+    &.is-active .menu-icon .fa-bars:before {
+      content: "\f00d"
+    }
+  }
+}
+
+.pulse__title {
+  text-align: center;
+}
+
+.logo {
+
+}
+
+.container-980 {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.container-1040 {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+
+@keyframes pulse {
+  0% {
+
+  }
+  100% {
+
+  }
+}
+
+.card__wrapper {
+  position: relative;
+  height: 100%;
+
+  //background-image: url("../images/card-back-3.svg");
+  //background-repeat: no-repeat;
+  //background-size: contain;
+  //background-position: 150% 150px;
+
+  border: 1px solid transparent;
+  transition: .2s ease-in-out;
+
+  &:hover {
+    //background-position: 120% 100px;
+    box-shadow: 0 1em 2em -0.105em rgba(10, 10, 10, 0.15);
+    //border: 1px solid #bebebe;
+  }
+
+  .card__link {
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.card-info-wrapper {
+  position: relative;
+
+  .card-info-tag {
+    top: 0;
+    right: 0;
+    margin-bottom: .65em;
+
+    @media (min-width: 1080px) {
+      position: absolute;
+    }
+  }
+}
+
+
+// buter
+.pacient-flex{
+  .is-narrow{
+    flex: none;
+    width: unset;
+  }
+}
+
+.buter-bottom{
+  //display: none;
+  &.is-active{
+    display: block;
+  }
+}
+
+//
+.pulse-info{
+  .tag{
+    //padding: 1em !important;
+    //width: 200px;
+    //font-size: 1.5em !important;
+    //font-weight: bold;
+  }
+}

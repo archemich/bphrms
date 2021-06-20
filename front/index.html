@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="bulma/css/bulma.css">
+
+    <title>Document</title>
+</head>
+<body>
+
+
+<header class="">
+    <nav class="navbar mb-5 p-4" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="https://bulma.io">
+                    <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                   data-target="navbarBasicExample">
+                    <div class="menu-icon is-large">
+                        <i class="fas fa-bars is-size-4"></i>
+                    </div>
+                </a>
+
+            </div>
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+
+                </div>
+                <div class="navbar-end is-large">
+                    <div class="navbar-item has-dropdown is-hoverable">
+
+                        <a class="navbar-link">
+                            Меню
+                        </a>
+
+                        <div class="navbar-dropdown is-mobile ">
+                            <a class="navbar-item">
+                                About
+                            </a>
+                            <a class="navbar-item">
+                                Jobs
+                            </a>
+
+                            <hr class="navbar-divider">
+                            <a class="navbar-item">
+                                Выход
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<main>
+    <div class="section">
+        <div class="container-980">
+            <!--            Табы -->
+            <div class="columns is-centered">
+                <div class="column is-8-desktop">
+                    <div class="box">
+                        <h2 class="title has-text-centered">Войти в систему</h2>
+                        <div class="tabs is-centered is-large is-fullwidth">
+                            <!--            https://bulma.io/documentation/components/tabs/    -->
+                            <ul>
+                                <li class="is-active"><a>Я пациент</a></li>
+                                <li class=""><a>Я врач</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--            Форма -->
+            <div class="columns is-centered">
+                <div class="column is-12-mobile is-8-desktop">
+                    <div class="box">
+                        <form action="">
+
+                            <div class="field">
+                                <label class="label is-large">Логин</label>
+                                <div class="control has-icons-left has-icons-right">
+                                    <input class="input is-success is-large" type="text" placeholder="Text input"
+                                           value="bulma">
+                                    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+                                    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+                                </div>
+                                <p class="help is-success">Логин свободен</p>
+                            </div>
+
+                            <div class="field">
+                                <label class="label is-large">Пароль</label>
+                                <div class="control has-icons-left has-icons-right">
+                                    <input class="input is-danger is-large" type="password" placeholder="Email input"
+                                           value="hello@">
+                                    <span class="icon is-small is-left">
+      <i class="fas fa-unlock-alt"></i>
+    </span>
+                                    <span class="icon is-small is-right">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+                                </div>
+                                <!--                        <p class="help is-danger">Па</p>-->
+                            </div>
+
+                            <div class="field">
+                                <div class="control ">
+                                    <label class="checkbox is-size-4 ">
+                                        <input type="checkbox">
+                                        Я согласен с условиями использования и ознакомлен с <a href="#">законом о защите
+                                        персональных данных</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <hr class="mt-6">
+                            <h2 class="subtitle has-text-centered my-6 is-size-3">Или</h2>
+
+                            <div class="field is-grouped is-grouped-centered my-6">
+                                <div class="control">
+                                    <button class="button is-link is-large">Войти через <span
+                                            class="has-text-weight-semibold ml-2">ГосУслуги</span></button>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</main>
+
+
+<footer class="footer">
+    <h5 class="has-text-centered">@copyrite</h5>
+</footer>
+
+</body>
+</html>
